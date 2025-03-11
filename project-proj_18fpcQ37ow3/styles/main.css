@@ -1,0 +1,73 @@
+.card-container {
+    transition: transform 0.3s ease;
+}
+
+.card-container:hover {
+    transform: translateY(-5px);
+}
+
+.flowchart-container {
+    overflow-x: auto;
+}
+
+section {
+    padding: 1rem 0;
+    scroll-margin-top: 4rem;
+}
+
+section:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .rule-card {
+        margin: 0.5rem 0;
+    }
+    
+    [data-name="header-content"] {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    [data-name="logo"] {
+        margin-bottom: 1rem;
+    }
+}
+
+img {
+    transition: transform 0.2s ease;
+}
+
+.card-container:hover img {
+    transform: translateY(-2px);
+}
+
+.flowchart-container img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.flowchart-container img:hover {
+    transform: scale(1.05);
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #2563eb, #3b82f6);
+    border-radius: 3px;
+}
+
+.ad-container {
+    margin: 0.5rem 0;
+}

@@ -1,0 +1,132 @@
+/* Print-specific styles */
+@media print {
+    body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 12pt !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block !important;
+    }
+
+    .print-container {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    section {
+        page-break-inside: avoid;
+        margin-bottom: 20px !important;
+        padding: 0 !important;
+    }
+
+    h1 {
+        font-size: 24pt !important;
+        margin-bottom: 15px !important;
+    }
+
+    h2 {
+        font-size: 18pt !important;
+        margin: 15px 0 !important;
+    }
+
+    h3 {
+        font-size: 14pt !important;
+    }
+
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .card-container {
+        page-break-inside: avoid;
+    }
+
+    .print-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 9pt;
+        color: #666;
+    }
+
+    .print-qr-code {
+        float: right;
+        width: 100px;
+        height: 100px;
+        margin-left: 15px;
+    }
+}
+
+/* Print Preview Modal */
+.print-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.print-modal {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.print-checkbox-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.print-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.print-preview-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 15px 0;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.print-modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+@media (max-width: 640px) {
+    .print-modal {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .print-checkbox-list {
+        grid-template-columns: 1fr;
+    }
+}
