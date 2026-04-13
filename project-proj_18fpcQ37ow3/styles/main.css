@@ -1,73 +1,128 @@
+/* =============================================
+   Switch Card Game — main.css
+   ============================================= */
+
+/* --- Card hover animations --- */
 .card-container {
-    transition: transform 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 .card-container:hover {
-    transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
-
-.flowchart-container {
-    overflow-x: auto;
-}
-
-section {
-    padding: 1rem 0;
-    scroll-margin-top: 4rem;
-}
-
-section:not(:last-child) {
-    margin-bottom: 0.5rem;
-}
-
-@media (max-width: 640px) {
-    .rule-card {
-        margin: 0.5rem 0;
-    }
-    
-    [data-name="header-content"] {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    [data-name="logo"] {
-        margin-bottom: 1rem;
-    }
-}
-
-img {
-    transition: transform 0.2s ease;
-}
-
 .card-container:hover img {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
+/* --- Image transitions --- */
+img {
+  transition: transform 0.2s ease;
+}
+
+/* --- Flowchart --- */
+.flowchart-container {
+  overflow-x: auto;
+}
 .flowchart-container img {
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
-
 .flowchart-container img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
+/* --- Section spacing & scroll offset --- */
+section {
+  padding: 1.5rem 0;
+  scroll-margin-top: 4.5rem;   /* clears sticky nav on anchor jump */
+}
+section:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Section title underline accent --- */
 .section-title {
-    position: relative;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.625rem;
+  margin-bottom: 1.25rem;
 }
-
 .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(to right, #2563eb, #3b82f6);
-    border-radius: 3px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(to right, #2563eb, #60a5fa);
+  border-radius: 9999px;
 }
 
+/* --- Navigation tab active pulse --- */
+nav button[aria-current="page"] {
+  animation: tab-in 0.2s ease;
+}
+@keyframes tab-in {
+  from { transform: scale(0.93); opacity: 0.7; }
+  to   { transform: scale(1);    opacity: 1;   }
+}
+
+/* --- Ad container spacing --- */
 .ad-container {
+  margin: 0.5rem 0;
+}
+
+/* --- Mobile responsive --- */
+@media (max-width: 640px) {
+  .rule-card {
     margin: 0.5rem 0;
+  }
+  [data-name="header-content"] {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  [data-name="logo"] {
+    margin-bottom: 0.75rem;
+    justify-content: center;
+  }
+  nav ul {
+    gap: 0.25rem;
+  }
+  nav button {
+    padding: 0.375rem 0.625rem;
+  }
+  nav button span:first-child {
+    font-size: 1rem;
+  }
+}
+
+/* --- Smooth fade-in for main content --- */
+[data-name="main-content"] {
+  animation: fade-in 0.35s ease;
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* --- Rule cards --- */
+[data-name="rules-grid"] > * {
+  transition: box-shadow 0.2s ease;
+}
+[data-name="rules-grid"] > *:hover {
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+}
+
+/* --- Print: hide non-essential chrome --- */
+@media print {
+  nav,
+  [data-name="hit-counter"],
+  .ad-container,
+  button {
+    display: none !important;
+  }
+  section {
+    page-break-inside: avoid;
+    scroll-margin-top: 0;
+  }
 }
