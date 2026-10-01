@@ -1,14 +1,16 @@
 function Navigation() {
   try {
-    const [activeTab, setActiveTab] = React.useState('rules');
+    const [activeTab, setActiveTab] = React.useState('quick-start');
 
     const tabs = [
+      { id: 'quick-start',   label: 'Start',      icon: '⚡' },
       { id: 'rules',         label: 'Rules',      icon: '📋' },
       { id: 'special-cards', label: 'Cards',      icon: '🃏' },
       { id: 'game-plays',    label: 'Modes',      icon: '🏆' },
+      { id: 'scorekeeper',   label: 'Score',      icon: '✏️' },
       { id: 'game-flow',     label: 'Flow',       icon: '🔀' },
       { id: 'simulation',    label: 'Simulation', icon: '▶️' },
-      { id: 'comments',      label: 'Chat',       icon: '💬' }
+      { id: 'faq',           label: 'FAQs',       icon: '❓' }
     ];
 
     // Track active section on scroll
