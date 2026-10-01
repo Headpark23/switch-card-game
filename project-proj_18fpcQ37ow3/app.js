@@ -13,7 +13,7 @@ function App() {
           </div>
         )}
         <main data-name="main-content" className="container mx-auto py-4">
-          <AdUnit slot="1234567890" />
+          <QuickStart />
 
           <section id="rules" data-name="rules-section">
             <h2 data-name="section-title" className="text-2xl font-bold text-center section-title">Game Rules</h2>
@@ -23,8 +23,6 @@ function App() {
               ))}
             </div>
           </section>
-
-          <AdUnit slot="9876543210" />
 
           <section id="special-cards" data-name="special-cards-section">
             <h2 data-name="section-title" className="text-2xl font-bold text-center section-title">Special Cards</h2>
@@ -36,7 +34,10 @@ function App() {
             <GamePlays />
           </section>
 
-          <AdUnit slot="5432109876" />
+          <section id="scorekeeper" data-name="scorekeeper-section">
+            <h2 data-name="section-title" className="text-2xl font-bold text-center section-title">Keep the Score</h2>
+            <ScoreKeeper />
+          </section>
 
           <section id="game-flow" data-name="flowchart-section">
             <h2 data-name="section-title" className="text-2xl font-bold text-center section-title">Game Flow</h2>
@@ -48,14 +49,14 @@ function App() {
             <GameSimulation />
           </section>
 
-          {/* Chat / Comments section — id required for the Chat tab to scroll here */}
-          <section id="comments" data-name="comments-section">
-            <CommentSection />
+          <section id="faq" data-name="faq-section">
+            <h2 data-name="section-title" className="text-2xl font-bold text-center section-title">Switch Card Game FAQs</h2>
+            <FrequentlyAskedQuestions />
           </section>
 
-          <HitCounter />
         </main>
         <PrintButton />
+        <Footer />
       </div>
     );
   } catch (error) {
@@ -67,4 +68,3 @@ function App() {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-
